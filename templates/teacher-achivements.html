@@ -1,0 +1,67 @@
+{% extends 'templates/base.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- Page Header Start -->
+    <div
+      class="container-fluid page-header py-5 mb-5 wow fadeIn"
+      data-wow-delay="0.1s"
+    >
+      <div class="container py-5">
+        <h1 class="display-4 animated slideInDown mb-4">Faculty Achievements</h1>
+        <nav aria-label="breadcrumb animated slideInDown">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">
+              Faculty Achievements
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+    <!-- Page Header End -->
+
+    <!-- Team Start -->
+    <div class="container-xxl py-5">
+      <div class="container">
+        <div class="text-center mx-auto" style="max-width: 500px">
+          <h1 class="display-6 mb-5">Faculty Achievements</h1>
+        </div>
+
+
+        <div class="container">
+          <div class="row">
+
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Designation</th>
+                  <th scope="col">Achievements</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for teacher in teacher %}
+                  <tr>
+                    <td>{{teacher.name}}</td>
+                    <td>{{teacher.designation}}</td>
+                    <td><a href="{{teacher.file.url}}">view</a></td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+
+        <script>
+          $(document).on("click", '[data-toggle="lightbox"]', function(event) {
+  event.preventDefault();
+  $(this).ekkoLightbox();
+});
+        </script>
+
+      </div>
+    </div>
+    <!-- Team End -->
+ {% endblock %}
